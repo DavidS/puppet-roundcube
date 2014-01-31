@@ -72,6 +72,12 @@ class roundcube ($db_password) {
       group   => www-data,
       require => [Package["roundcube"], Package["roundcube-pgsql"], Exec["dpkg-reconfigure-roundcube"]];
 
+    "/etc/roundcube/plugins/managesieve/config.inc.php":
+      content => template("roundcube/managesieve.config.inc.php.erb"),
+      mode    => 0644,
+      owner   => root,
+      group   => root;
+
     "/var/lib/roundcube-dbimport":
       ensure => directory,
       mode   => 0700,
