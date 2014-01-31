@@ -76,7 +76,8 @@ class roundcube ($db_password) {
       content => template("roundcube/managesieve.config.inc.php.erb"),
       mode    => 0644,
       owner   => root,
-      group   => root;
+      group   => root,
+      require => Package["roundcube-plugins"];
 
     "/var/lib/roundcube-dbimport":
       ensure => directory,
