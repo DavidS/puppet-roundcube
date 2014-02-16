@@ -10,7 +10,7 @@
 #
 # Sample Usage:
 #
-class roundcube ($db_password) {
+class roundcube ($db_password, $mail_domain) {
   # main.inc options
   $default_host = 'localhost'
   $default_port = 143
